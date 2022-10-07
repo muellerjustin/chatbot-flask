@@ -46,7 +46,7 @@ class Chatbox {
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
-        fetch('https://coding-muellerjustin.com/predict', {
+        fetch('https://www.coding-muellerjustin.com/predict', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
@@ -67,7 +67,6 @@ class Chatbox {
             textField.value = ''
           });
     }
-
     updateChatText(chatbox) {
         var html = '';
         this.messages.slice().reverse().forEach(function(item, index) {
