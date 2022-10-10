@@ -1,6 +1,5 @@
-## Chatbot
-
-# to access and try out the chatbot pleasae follow these steps:
+# Chatbot
+To try out the chatbot please follow the instructions:
 1. clone repository:
 ```
 git clone https://github.com/muellerjustin/chatbot-flask.git
