@@ -1,7 +1,6 @@
 class Chatbox {
     constructor() {
         this.args = {
-            // openButton: document.querySelector('.chatbox__button'),
             chatBox: document.querySelector('.chatbox__support'),
             sendButton: document.querySelector('.send__button')
         }
@@ -13,7 +12,6 @@ class Chatbox {
     display() {
         const {chatBox, sendButton} = this.args;
 
-        // openButton.addEventListener('click', () => this.toggleState(chatBox))
 
         sendButton.addEventListener('click', () => this.onSendButton(chatBox))
 
@@ -27,13 +25,6 @@ class Chatbox {
 
     toggleState(chatbox) {
         this.state = !this.state;
-
-        // show or hides the box
-        // if(this.state) {
-        //     chatbox.classList.add('chatbox--active')
-        // } else {
-        //     chatbox.classList.remove('chatbox--active')
-        // }
     }
 
     onSendButton(chatbox) {
@@ -46,7 +37,7 @@ class Chatbox {
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
-        fetch('https://www.coding-muellerjustin.com/predict', {
+        fetch('http://127.0.0.1:5000/predict', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
@@ -56,7 +47,7 @@ class Chatbox {
           })
           .then(r => r.json())
           .then(r => {
-            let msg2 = { name: "Sam", message: r.answer };
+            let msg2 = { name: "Chris", message: r.answer };
             this.messages.push(msg2);
             this.updateChatText(chatbox)
             textField.value = ''
@@ -67,10 +58,11 @@ class Chatbox {
             textField.value = ''
           });
     }
+
     updateChatText(chatbox) {
         var html = '';
         this.messages.slice().reverse().forEach(function(item, index) {
-            if (item.name === "Sam")
+            if (item.name === "Chris")
             {
                 html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
             }

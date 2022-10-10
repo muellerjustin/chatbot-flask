@@ -6,14 +6,14 @@ nltk.download('omw-1.4')
 lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
-
 from keras.models import load_model
-model = load_model('chatbot_model.h5')
 import json
 import random
+
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
+model = load_model('chatbot_model.h5')
 
 
 def clean_up_sentence(sentence):
@@ -21,8 +21,8 @@ def clean_up_sentence(sentence):
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
     return sentence_words
 
-# return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
 
+# return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
 def bow(sentence, words, show_details=True):
     # tokenize the pattern
     sentence_words = clean_up_sentence(sentence)
@@ -37,12 +37,13 @@ def bow(sentence, words, show_details=True):
                     print ("found in bag: %s" % w)
     return(np.array(bag))
 
+
 def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
     print(res)
-    ERROR_THRESHOLD = 0.95
+    ERROR_THRESHOLD = 0.75
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
@@ -63,6 +64,7 @@ def getResponse(ints, intents_json):
             break
     return result
 
+
 def chatbot_response(msg):
     ints = predict_class(msg, model)
     res = getResponse(ints, intents)
@@ -72,7 +74,6 @@ def chatbot_response(msg):
 if __name__ == "__main__":
     print("Let's chat! (type 'quit' to exit)")
     while True:
-        # sentence = "do you use credit cards?"
         sentence = input("You: ")
         if sentence == "quit":
             break

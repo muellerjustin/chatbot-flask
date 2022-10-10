@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-
 from chat import chatbot_response
 
 app = Flask(__name__)
@@ -11,7 +10,6 @@ def index_get():
 @app.post("/predict")
 def predict():
     text = request.get_json().get("message")
-    # TODO: check if text is valid
     response = chatbot_response(text)
     message = {"answer": response}
     return jsonify(message)
