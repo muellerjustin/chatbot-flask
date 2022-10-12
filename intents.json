@@ -26,7 +26,7 @@
     },
     {"tag": "identity",
      "patterns": ["Who are you?", "What are you?", "Who am I talking to?", "What is your name?", "What are you called?"],
-     "responses": ["My name is Nate. I am the virtual shop assistant."],
+     "responses": ["My name is Chris. I am the virtual shop assistant."],
      "context": [""]
     },
     {"tag": "opening hours",
