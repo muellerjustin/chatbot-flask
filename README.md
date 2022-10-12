@@ -1,5 +1,5 @@
 # Chatbot
-Chatbot with artificial intelligence and machine learning
+Chatbot with artificial intelligence and machine learning.__
 His name is Chris and he is a virtual shop assistant who can be trained for any shop.
 
 <img width="400" alt="Bildschirmfoto 2022-10-12 um 15 27 15" src="https://user-images.githubusercontent.com/107192213/195356678-fd40e8aa-d82a-4267-8976-d373e90cd608.png">
