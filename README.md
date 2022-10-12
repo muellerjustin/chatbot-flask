@@ -1,4 +1,6 @@
 # Chatbot
+Chatbot with artificial intelligence and machine learning
+
 <img width="400" alt="Bildschirmfoto 2022-10-12 um 15 27 15" src="https://user-images.githubusercontent.com/107192213/195356678-fd40e8aa-d82a-4267-8976-d373e90cd608.png">
 
 <img width="402" alt="Bildschirmfoto 2022-10-12 um 15 27 26" src="https://user-images.githubusercontent.com/107192213/195356693-74768f3c-4bce-48f8-ae61-92d8b2ff515f.png">
